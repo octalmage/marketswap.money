@@ -1,5 +1,5 @@
-@use 'mixins';
-@use 'variables';
+@import 'mixins';
+@import 'variables';
 
 .component {
   @media (min-width: $breakpoint) {
