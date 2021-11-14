@@ -131,22 +131,6 @@ const Component = ({ actives, user, title }: ComponentProps) => {
         message={message}
         contents={contents}
       />
-
-      <hr />
-
-      {bank && pairs && (
-        <ButtonWithAuth
-          className={s.all}
-          onClick={() =>
-            modal.open(
-              <SwapMultiple bank={bank} pairs={pairs} onFinish={load} />
-            )
-          }
-        >
-          <Icon name="bolt" size={24} className={s.icon} />
-          {label.multipleSwap}
-        </ButtonWithAuth>
-      )}
     </Card>
   ) : null
 }

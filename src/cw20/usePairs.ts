@@ -1,10 +1,7 @@
-import { Dictionary } from 'ramda'
-import useTerraAssets from '../hooks/useTerraAssets'
-import { Pairs } from '../types'
+import pairs from '../pairs.json'
 
 const usePairs = (name: string) => {
-  const response = useTerraAssets<Dictionary<Pairs>>('cw20/pairs.json')
-  return { ...response, pairs: response.data?.[name] }
+  return { isLoading: false, pairs: (pairs as any)[name] }
 }
 
 export default usePairs

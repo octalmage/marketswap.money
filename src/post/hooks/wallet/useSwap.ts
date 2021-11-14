@@ -69,7 +69,6 @@ export default (user: User, actives: string[]): PostPage<SwapUI> => {
   const { pairs, isLoading: loadingPairs } = usePairs(currentChainName)
   const loadingUI =
     bank.loading || loadingWhitelist || cw20TokenBalance.loading || loadingPairs
-
   // tokens
   const nativeTokensOptions = ['uluna', ...actives].map((denom) => ({
     value: denom,
@@ -162,20 +161,12 @@ export default (user: User, actives: string[]): PostPage<SwapUI> => {
   )
 
   const init = (values?: Partial<Values>) => {
-    const defaultValues = {
-      mode: undefined,
-      slippage: '1',
-      from: '',
-      to: '',
-      input: '',
-    }
-
     setSimulationsMarket([])
     setSimulationsTerraswap([])
     setSimulationsRoute([])
     setNativePrincipals([])
     setTradingFeeTerraswap('0')
-    setValues({ ...defaultValues, ...values })
+    setValues({ ...initial, ...values })
   }
 
   /* simulate */
